@@ -11,9 +11,10 @@ import Vue from 'vue'
 import Vuelidate from 'vuelidate'
 import VuelidateForms from 'vuelidate-forms'
 
-Vue.use(Vuelidate)
 Vue.use(VuelidateForms)
+Vue.use(Vuelidate)
 ```
+**Important**: you should connect VuelidateForms _before_ Vuelidate.
 ## Usage
 ### Default fields
 ```javascript
