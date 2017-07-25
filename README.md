@@ -122,5 +122,5 @@ new Vue({
 })
 ```
 ## TODO:
-[] Finish plugin
-[] Write tests
+- [ ] Finish plugin
+- [ ] Write tests
