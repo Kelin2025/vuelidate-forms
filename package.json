@@ -1,5 +1,5 @@
 {
-  "name": "Vuelidate forms",
+  "name": "vuelidate-forms",
   "version": "0.1.0",
   "description": "Use one schema to declare data and validations for Vuelidate",
   "license": "MIT",
