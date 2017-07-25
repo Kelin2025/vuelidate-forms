@@ -7,7 +7,7 @@ import zipObjectDeep from 'lodash/zipObjectDeep'
 // Get schemas from Vue instance
 // convert schema declared as function to schema object
 // map schemas with callback
-const buildObject = (vm, callback) => mapValues(
+export const buildObject = (vm, callback) => mapValues(
   vm.$options.forms,
   item => callback(
     isFunction(item)
@@ -17,12 +17,14 @@ const buildObject = (vm, callback) => mapValues(
 )
 
 // Convert schema object to data object
-const createDataFromSchema = form =>
+export const createDataFromSchema = form =>
   mapValues(
     omitBy(form, isFunction),
     item => {
       if (!isPlainObject(item)) return item
-      if (item.$each) return []
+      if (item.$each) {
+        return item.$value || []
+      }
       let tmp = createDataFromSchema(item)
       return !Object.keys(tmp).length
         ? null
@@ -33,7 +35,7 @@ const createDataFromSchema = form =>
   )
 
 // Convert schema object to validations object
-const createValidationsFromSchema = form =>
+export const createValidationsFromSchema = form =>
   omitBy(
     mapValues(
       form,
