@@ -3,7 +3,7 @@ import set from 'lodash/set'
 import mapValues from 'lodash/mapValues'
 import { buildObject, createDataFromSchema, createValidationsFromSchema } from './utils'
 
-export default = (Vue) => {
+export default (Vue) => {
   Vue.mixin({
     data () {
       return !this.$options.forms
