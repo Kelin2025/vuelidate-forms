@@ -1,5 +1,5 @@
 # Vuelidate-forms
-Combine data object and validation schema in one declaration
+Combine data object and validation schema in one declaration  
 [Vuelidate docs](https://monterail.github.io/vuelidate/)
 ## Installation
 1. Install vuelidate and vuelidate-forms
