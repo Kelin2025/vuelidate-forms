@@ -43,8 +43,10 @@ new Vue({
     }
   },
   validations: {
-    field: { required },
-    anotherField: { required, numeric }
+    test: {
+      field: { required },
+      anotherField: { required, numeric }
+    }
   }
 })
 ```
@@ -73,9 +75,11 @@ new Vue({
     }
   },
   validations: {
-    anotherField: {
-      required,
-      numeric
+    test: {
+      anotherField: {
+        required,
+        numeric
+      }
     }
   }
 })
@@ -105,18 +109,22 @@ Is equal to
 ```javascript
 new Vue({
   data: {
-    list: []
+    test: {
+      list: []
+    }
   },
   validations: {
-    list: {
-      minLength: minLength(5),
-      $each: {
-        field: {
-          required
-        },
-        anotherField: {
-          required,
-          numeric
+    test: {
+      list: {
+        minLength: minLength(5),
+        $each: {
+          field: {
+            required
+          },
+          anotherField: {
+            required,
+            numeric
+          }
         }
       }
     }
