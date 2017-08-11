@@ -1,8 +1,7 @@
-import omitBy from 'lodash/omitBy'
-import mapValues from 'lodash/mapValues'
-import isFunction from 'lodash/isFunction'
-import isPlainObject from 'lodash/isPlainObject'
-import zipObjectDeep from 'lodash/zipObjectDeep'
+import omitBy from 'lodash-es/omitBy'
+import mapValues from 'lodash-es/mapValues'
+import isFunction from 'lodash-es/isFunction'
+import isPlainObject from 'lodash-es/isPlainObject'
 
 // Get schemas from Vue instance
 // convert schema declared as function to schema object
@@ -30,7 +29,7 @@ export const createDataFromSchema = form =>
         ? null
         : tmp.$value
           ? tmp.$value
-          : tmp
+          : omitBy(tmp, (item, key) => key.startsWith('$'))
     }
   )
 

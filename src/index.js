@@ -12,8 +12,10 @@ export default (Vue) => {
     },
     beforeCreate () {
       if (!this.$options.forms) return {}
+      // Generate validations option
       this.$options.validations = buildObject(this, createValidationsFromSchema)
       let methods = {
+        // Set previous state to form
         reset (name) {
           if (!get(this, name)) {
             console.warn(`[Vuelidate form] $forms.reset | Form ${name} not found`)
@@ -25,6 +27,7 @@ export default (Vue) => {
             createDataFromSchema(this.$options.forms[name])
           )
         },
+        // Check if form has errors
         validate (name) {
           let validator = get(this.$v, name)
           if (!validator) {
@@ -34,7 +37,13 @@ export default (Vue) => {
           return validator.$touch() || !validator.$invalid
         }
       }
+      // Default $forms.reset(name)
       this.$forms = mapValues(methods, item => item.bind(this))
+      // Alternative style $form(name).reset()
+      this.$form = name => mapValues(
+        this.$forms,
+        callback => (...args) => callback(name, ...args)
+      )
     }
   })
 }

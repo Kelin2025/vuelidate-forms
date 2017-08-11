@@ -1,21 +1,31 @@
 {
   "name": "vuelidate-forms",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Use one schema to declare data and validations for Vuelidate",
+  "author": "Anton Kosykh",
+  "main": "index.js",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kelin2025/vuelidate-forms"
+  },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:Kelin2025/vuelidate-forms.git"
+    "url": "https://github.com/Kelin2025/vuelidate-forms"
+  },
+  "scripts": {
+    "build": "rollup -c rollup.config.build.js"
   },
   "homepage": "https://github.com/Kelin2025/vuelidate-forms",
-  "main": "index.js",
   "dependencies": {
-    "lodash.get": "^4.4.2",
-    "lodash.isfunction": "^3.0.8",
-    "lodash.isplainobject": "^4.0.6",
-    "lodash.mapvalues": "^4.6.0",
-    "lodash.omitby": "^4.6.0",
-    "lodash.set": "^4.3.2",
-    "lodash.zipobjectdeep": "^4.4.2"
+    "lodash-es": "^4.17.4"
+  },
+  "devDependencies": {
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.3.0",
+    "rollup": "^0.45.2",
+    "rollup-plugin-babel": "^2.3.9",
+    "rollup-plugin-commonjs": "^8.1.0",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "source-map-support": "^0.4.0"
   }
 }
