@@ -5,7 +5,6 @@ import { buildObject, createDataFromSchema, createValidationsFromSchema } from '
 
 export default (Vue) => {
 
-  // Generate validations option
   let methods = {
     // Set previous state to form
     reset (name) {
@@ -37,6 +36,7 @@ export default (Vue) => {
       : buildObject(this, createDataFromSchema)
     },
     beforeCreate () {
+      // Generate validations option
       if (this.$options.forms) {
         this.$options.validations = buildObject(this, createValidationsFromSchema)
       }

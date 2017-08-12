@@ -6072,33 +6072,36 @@ const createDataFromSchema = form => mapValues$2(omitBy(form, isFunction$2), ite
 const createValidationsFromSchema = form => omitBy(mapValues$2(form, item => isPlainObject(item) ? createValidationsFromSchema(item) : isFunction$2(item) ? item : null), item => item === null || isPlainObject(item) && !Object.keys(item).length);
 
 var index = (Vue => {
+
+  let methods = {
+    // Set previous state to form
+    reset(name) {
+      if (!get_1(this, name)) {
+        console.warn(`[Vuelidate form] $forms.reset | Form ${name} not found`);
+        return;
+      }
+      set_1(this, name, createDataFromSchema(this.$options.forms[name]));
+    },
+    // Check if form has errors
+    validate(name) {
+      let validator = get_1(this.$v, name);
+      if (!validator) {
+        console.warn(`[Vuelidate form] $form.validate() | Validator ${name} not found`);
+        return;
+      }
+      return validator.$touch() || !validator.$invalid;
+    }
+  };
+
   Vue.mixin({
     data() {
       return !this.$options.forms ? {} : buildObject(this, createDataFromSchema);
     },
     beforeCreate() {
-      if (!this.$options.forms) return {};
       // Generate validations option
-      this.$options.validations = buildObject(this, createValidationsFromSchema);
-      let methods = {
-        // Set previous state to form
-        reset(name) {
-          if (!get_1(this, name)) {
-            console.warn(`[Vuelidate form] $forms.reset | Form ${name} not found`);
-            return;
-          }
-          set_1(this, name, createDataFromSchema(this.$options.forms[name]));
-        },
-        // Check if form has errors
-        validate(name) {
-          let validator = get_1(this.$v, name);
-          if (!validator) {
-            console.warn(`[Vuelidate form] $form.validate() | Validator ${name} not found`);
-            return;
-          }
-          return validator.$touch() || !validator.$invalid;
-        }
-      };
+      if (this.$options.forms) {
+        this.$options.validations = buildObject(this, createValidationsFromSchema);
+      }
       // Default $forms.reset(name)
       this.$forms = mapValues_1(methods, item => item.bind(this));
       // Alternative style $form(name).reset()
