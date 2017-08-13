@@ -6084,12 +6084,14 @@ var index = (Vue => {
     },
     // Check if form has errors
     validate(name) {
-      let validator = get_1(this.$v, name);
-      if (!validator) {
+      let $v = get_1(this.$v, name);
+      if (!$v) {
         console.warn(`[Vuelidate form] $form.validate() | Validator ${name} not found`);
         return;
       }
-      return validator.$touch() || !validator.$invalid;
+      $v.$touch();
+      set_1(this.$v, name, $v);
+      return !$v.$invalid;
     }
   };
 
