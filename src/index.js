@@ -1,6 +1,6 @@
-import get from 'lodash/get'
-import set from 'lodash/set'
-import mapValues from 'lodash/mapValues'
+import get from 'lodash-es/get'
+import set from 'lodash-es/set'
+import mapValues from 'lodash-es/mapValues'
 import { buildObject, createDataFromSchema, createValidationsFromSchema } from './utils'
 
 export default (Vue) => {
