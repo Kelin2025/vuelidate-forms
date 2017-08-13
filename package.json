@@ -13,7 +13,7 @@
     "url": "https://github.com/Kelin2025/vuelidate-forms"
   },
   "scripts": {
-    "prepublish": "rollup -c rollup.config.build.js",
+    "prepare": "rollup -c rollup.config.build.js",
     "build": "rollup -c rollup.config.build.js"
   },
   "homepage": "https://github.com/Kelin2025/vuelidate-forms",
