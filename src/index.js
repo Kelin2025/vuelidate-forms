@@ -27,7 +27,7 @@ export default (Vue) => {
       }
       $v.$touch()
       set(this.$v, name, $v)
-      return  || !$v.$invalid
+      return !$v.$invalid
     }
   }
 
