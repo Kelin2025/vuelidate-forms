@@ -1,12 +1,12 @@
 {
   "name": "vuelidate-forms",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Use one schema to declare data and validations for Vuelidate",
   "author": "Anton Kosykh",
   "main": "dist/index.js",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Kelin2025/vuelidate-forms"
+    "url": "https://github.com/Kelin2025/vuelidate-forms/issues"
   },
   "repository": {
     "type": "git",
