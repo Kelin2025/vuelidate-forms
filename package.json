@@ -26,8 +26,10 @@
     "rollup": "^0.45.2",
     "rollup-plugin-babel": "^2.3.9",
     "rollup-plugin-commonjs": "^8.1.0",
+    "rollup-plugin-gzip": "^1.2.0",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-uglify": "^2.0.1",
-    "source-map-support": "^0.4.0"
+    "source-map-support": "^0.4.0",
+    "uglify-es": "^3.0.27"
   }
 }
