@@ -12,5 +12,10 @@
     "type": "git",
     "url": "https://github.com/Kelin2025/vuelidate-forms"
   },
-  "homepage": "https://github.com/Kelin2025/vuelidate-forms"
+  "homepage": "https://github.com/Kelin2025/vuelidate-forms",
+  "devDependencies": {
+    "babel-jest": "^23.2.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^23.2.0"
+  }
 }
