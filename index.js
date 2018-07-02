@@ -9,7 +9,7 @@ const fromPairs = pairs =>
  * @param {Object} forms Forms schema
  * @returns {Object} Data object
  */
-export const createData = forms =>
+const createData = forms =>
   Object.entries(forms).reduce((data, [key, item]) => {
     if (typeof item === "function") return data
     if (typeof item !== "object") return data
@@ -38,7 +38,7 @@ export const createData = forms =>
  * @param {Object} forms Forms schema
  * @returns {Object} Vuelidate schema
  */
-export const createValidations = forms =>
+const createValidations = forms =>
   Object.entries(forms).reduce((validations, [key, item]) => {
     if (item === null) return validations
     if (typeof item === "function") {
@@ -104,6 +104,10 @@ const VuelidateFormsMixin = {
   }
 }
 
-export default Vue => {
+module.exports = Vue => {
   Vue.mixin(VuelidateFormsMixin)
 }
+
+exports.createData = createData
+exports.createValidations = createValidations
+exports.VuelidateFormsMixin = VuelidateFormsMixin
