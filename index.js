@@ -78,7 +78,7 @@ const formMethods = {
 
 const VuelidateFormsMixin = {
   data() {
-    return !this.$options.form ? {} : createData(this.$options.forms)
+    return !this.$options.forms ? {} : createData(this.$options.forms)
   },
   beforeCreate() {
     if (this.$options.forms) {
