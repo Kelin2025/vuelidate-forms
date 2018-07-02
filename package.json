@@ -1,6 +1,6 @@
 {
   "name": "vuelidate-forms",
-  "version": "0.3.0-beta.1",
+  "version": "0.3.0-beta.2",
   "description": "Use one schema to declare data and validations for Vuelidate",
   "author": "Anton Kosykh",
   "main": "index.js",
